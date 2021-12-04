@@ -1,0 +1,4 @@
+21-12-04 00:57.297 [main] ERROR com.mikola.shape.reader.BallFileReader - The file path is incorrect
+21-12-04 00:57.301 [main] INFO  com.mikola.shape.reader.BallFileReader - Reading from the file was successful
+21-12-04 00:57.326 [main] ERROR com.mikola.shape.reader.BallFileReader - The file path is incorrect
+21-12-04 00:57.329 [main] INFO  com.mikola.shape.reader.BallFileReader - Reading from the file was successful
