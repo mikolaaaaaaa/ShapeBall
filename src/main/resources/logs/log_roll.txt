@@ -1,0 +1,2 @@
+21-12-04 00:57.181 [main] INFO  com.mikola.shape.reader.BallFileReader - Reading from the file was successful
+21-12-04 01:14.639 [main] INFO  com.mikola.shape.reader.BallFileReader - Reading from the file was successful

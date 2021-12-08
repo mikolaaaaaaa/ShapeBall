@@ -1,0 +1,10 @@
+21-12-04 11:28.370 [main] DEBUG mikola.shape.action.impl.BallLogic - Volume #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=1.0} is #1.0471975511965976
+21-12-04 11:28.389 [main] DEBUG mikola.shape.action.impl.BallLogic - Surface area #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=1.0} is #12.566370614359172
+21-12-04 11:28.398 [main] INFO  com.mikola.shape.creator.SimpleBallFactory - Ball object created
+21-12-04 11:28.403 [main] DEBUG mikola.shape.action.impl.BallLogic - Volume #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #9.42477796076938
+21-12-04 11:28.403 [main] DEBUG mikola.shape.action.impl.BallLogic - Surface area #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #113.09733552923255
+21-12-04 11:28.404 [main] DEBUG mikola.shape.action.impl.BallLogic - Volume #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #9.42477796076938
+21-12-04 11:28.406 [main] DEBUG mikola.shape.action.impl.BallLogic - Volume #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #9.42477796076938
+21-12-04 11:28.407 [main] DEBUG mikola.shape.action.impl.BallLogic - Surface area #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #113.09733552923255
+21-12-04 11:28.407 [main] DEBUG mikola.shape.action.impl.BallLogic - Surface area #Ball{center=Point{x=1.0, y=1.0, z=1.0}, radius=3.0} is #113.09733552923255
+21-12-04 11:28.428 [main] INFO  com.mikola.shape.reader.BallFileReader - Reading from the file was successful
