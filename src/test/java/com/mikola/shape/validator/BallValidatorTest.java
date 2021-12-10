@@ -6,14 +6,23 @@ import org.junit.jupiter.api.Test;
 
 public class BallValidatorTest {
     @Test
-    public void testIsNumericGood() throws BallException {
+    public void testIsNumericShouldReturnTrue() throws BallException {
+        //given
         String s = "1.1 1.1 1.1 1.1 1.1 1.1 1.1";
-        Assertions.assertTrue(BallValidator.chechInputLine(s));
+        //when
+        boolean correctLine = BallValidator.chechInputLine(s);
+        //then
+        Assertions.assertTrue(correctLine);
     }
 
     @Test
-    public void testIsNumericBad() throws BallException {
+    public void testIsNumericShouldReturnFalse() throws BallException {
+        //given
         String s = "1.1a 1.1 1.1 1.1 1.1 1.1 1.1";
-        Assertions.assertFalse(BallValidator.chechInputLine(s));
+        //when
+        boolean incorrectLine = BallValidator.chechInputLine(s);
+        //then
+        Assertions.assertFalse(incorrectLine);
     }
+
 }

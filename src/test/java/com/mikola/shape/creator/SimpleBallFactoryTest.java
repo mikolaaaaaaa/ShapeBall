@@ -9,10 +9,15 @@ import org.junit.jupiter.api.Test;
 
 public class SimpleBallFactoryTest {
     @Test
-    public void testCreateBall() throws BallException {
-        Ball expected = new Ball(new Point(1d,1d,1d),1);
+    public void testCreateBallShouldCreateBall() throws BallException {
+        //given
+        Point center = new Point(1, 1, 1);
+        double radius = 1;
+        Ball expected = new Ball(center, radius);
         SimpleBallFactory simpleBallFactory = new SimpleBallFactory();
-        Ball actual = simpleBallFactory.createBall(new Point(1d,1d,1d),1);
-        Assertions.assertEquals(expected,actual);
+        //when
+        Ball actual = simpleBallFactory.createBall(center, radius);
+        //then
+        Assertions.assertEquals(expected, actual);
     }
 }

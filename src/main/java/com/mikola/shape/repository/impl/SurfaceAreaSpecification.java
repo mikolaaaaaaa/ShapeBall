@@ -17,7 +17,7 @@ public class SurfaceAreaSpecification implements Specification {
     @Override
     public boolean specify(Ball ball) throws BallException {
         BallLogic ballLogic = new BallLogic();
-        double surfaceArea  = ballLogic.calculateSurfaceArea(ball);
+        double surfaceArea = ballLogic.calculateSurfaceArea(ball);
         return surfaceArea >= from && surfaceArea <= to;
     }
 }

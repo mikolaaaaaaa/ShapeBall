@@ -14,7 +14,7 @@ import java.util.List;
 public class BallFileReader {
     private static final Logger logger = LogManager.getLogger(BallFileReader.class);
 
-    public static List<String> readBallFromFile(String path) throws BallException {
+    public List<String> readBallFromFile(String path) throws BallException {
         if (path == null || path.isEmpty()) {
             throw new BallException("Given path is null or empty");
         }

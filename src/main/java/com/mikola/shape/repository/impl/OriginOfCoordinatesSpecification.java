@@ -18,9 +18,9 @@ public class OriginOfCoordinatesSpecification implements Specification {
     public boolean specify(Ball ball) throws BallException {
         Point point = ball.getCenter();
         double distanceBetweenCenter = Math.sqrt(
-                Math.pow(point.getX(),2)
-                + Math.pow(point.getY(),2)
-                + Math.pow((point.getZ()),2));
+                Math.pow(point.getX(), 2)
+                        + Math.pow(point.getY(), 2)
+                        + Math.pow((point.getZ()), 2));
         double firstSumOfRadius = from + ball.getRadius();
         double secondSumOfRadius = to + ball.getRadius();
         return distanceBetweenCenter <= firstSumOfRadius || distanceBetweenCenter <= secondSumOfRadius;

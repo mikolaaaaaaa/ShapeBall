@@ -29,7 +29,7 @@ public class BallStore implements Observer {
         BallLogic ballService = new BallLogic();
         double volume = ballService.calculateVolume(ball);
         double surfaceArea = ballService.calculateSurfaceArea(ball);
-        ballMap.put(ball.getId(),new BallParameters(volume,surfaceArea));
+        ballMap.put(ball.getId(), new BallParameters(volume, surfaceArea));
     }
 
 }

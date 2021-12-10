@@ -49,7 +49,7 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return Double.hashCode(x) + Double.hashCode(y) + Double.hashCode(z);
+        return (int) (x + 17 * y + 17 * z);
     }
 
     @Override

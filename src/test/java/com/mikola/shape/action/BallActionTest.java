@@ -17,46 +17,46 @@ public class BallActionTest {
 
     @BeforeEach
     public void setUp() {
-        firstBall = new Ball(new Point(1f,1f,1f),1f);
-        secondBall = new Ball(new Point(2f,2f,2f),1);
-        thirdBall = new Ball(new Point(1f,2f,3f),0);
+        firstBall = new Ball(new Point(1f, 1f, 1f), 1f);
+        secondBall = new Ball(new Point(2f, 2f, 2f), 1);
+        thirdBall = new Ball(new Point(1f, 2f, 3f), 0);
         ballService = new BallLogic();
     }
 
     @Test
-    public void testCalculateSurfaceArea() throws BallException {
+    public void testCalculateSurfaceAreaShouldCalculateSurfaceArea() throws BallException {
         double expected = 4 * Math.PI * Math.pow(1, 2);
         double actual = ballService.calculateSurfaceArea(firstBall);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testCalculateVolume() throws BallException {
+    public void testCalculateVolumeShouldCalculateVolume() throws BallException {
         double expected = Math.PI * Math.pow(1, 2) / 3;
         double actual = ballService.calculateVolume(firstBall);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void firstTestIsBall() throws BallException {
+    public void firstTestIsBallShouldCheckGoodData() throws BallException {
         boolean actual = ballService.isBall(firstBall);
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void secondTestIsBall() throws BallException{
+    public void secondTestIsBallShouldCheckBadData() throws BallException {
         boolean actual = ballService.isBall(thirdBall);
         Assertions.assertFalse(actual);
     }
 
     @Test
-    public void firstTestIsPertainsCoordinatedPlanes() throws BallException {
+    public void firstTestIsPertainsCoordinatedPlanesShouldCheckGoodData() throws BallException {
         boolean actual = ballService.isPertainsCoordinatedPlanes(firstBall);
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void secondTestIsPertainsCoordinatedPlanes() throws BallException {
+    public void secondTestIsPertainsCoordinatedPlanesShouldCheckBadData() throws BallException {
         boolean actual = ballService.isPertainsCoordinatedPlanes(secondBall);
         Assertions.assertFalse(actual);
     }

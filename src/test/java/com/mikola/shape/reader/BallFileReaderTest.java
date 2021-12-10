@@ -8,14 +8,18 @@ import java.util.List;
 
 public class BallFileReaderTest {
     @Test
-    public void testReadBallFromFile() throws BallException {
+    public void testReadBallFromFileShouldReadStringLineFromFile() throws BallException {
+        //given
         List<String> expected = List.of(
                 "1 1 1 1 1 1 1",
                 "1a 1 1 1 1 1",
                 "2 2 2 2 2 2 2"
         );
-        String path ="src/test/resources/data.txt";
-        List<String> actual = BallFileReader.readBallFromFile(path);
+        BallFileReader ballFileReader = new BallFileReader();
+        String path = "src/test/resources/data.txt";
+        //when
+        List<String> actual = ballFileReader.readBallFromFile(path);
+        //then
         Assertions.assertEquals(expected, actual);
     }
 }

@@ -11,7 +11,7 @@ public class BallRepository implements Repository {
 
     private Map<Long, Ball> store = new HashMap<>();
 
-    public Map<Long,Ball> getStore() {
+    public Map<Long, Ball> getStore() {
         return Collections.unmodifiableMap(store);
     }
 
@@ -27,13 +27,13 @@ public class BallRepository implements Repository {
 
     @Override
     public void update(Ball ball) {
-        store.put(ball.getId(),ball);
+        store.put(ball.getId(), ball);
     }
 
     @Override
     public List<Ball> query(Specification specification) throws BallException {
         List<Ball> balls = new ArrayList<>();
-        for(Ball ball : store.values()) {
+        for (Ball ball : store.values()) {
             if (specification.specify(ball)) {
                 balls.add(ball);
             }
@@ -48,4 +48,18 @@ public class BallRepository implements Repository {
         return balls;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BallRepository that = (BallRepository) o;
+
+        return store.equals(that.store);
+    }
+
+    @Override
+    public int hashCode() {
+        return store != null ? store.hashCode() : 0;
+    }
 }

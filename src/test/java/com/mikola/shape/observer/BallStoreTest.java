@@ -18,7 +18,7 @@ public class BallStoreTest {
 
     @BeforeEach
     public void setUp() throws BallException {
-        ball = new Ball(new Point(1,1,1),2);
+        ball = new Ball(new Point(1, 1, 1), 2);
         ballStore = BallStore.getInstance();
         ballService = new BallLogic();
         ball.attach(ballStore);
@@ -26,22 +26,22 @@ public class BallStoreTest {
     }
 
     @Test
-    public void testBallStoreVolume() throws BallException {
+    public void testBallStoreVolumeShouldUpdateVolumeParameter() throws BallException {
         double expected = ballService.calculateVolume(ball);
         Map<Long, BallParameters> ballsMap = ballStore.getBallMap();
         double actual = ballsMap
                 .get(ball.getId())
                 .getVolume();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testBallStoreSurfaceAres() throws BallException {
+    public void testBallStoreSurfaceAreaShouldUpdateSurfaceAreaParameter() throws BallException {
         double expected = ballService.calculateSurfaceArea(ball);
         Map<Long, BallParameters> ballsMap = ballStore.getBallMap();
         double actual = ballsMap
                 .get(ball.getId())
                 .getSurfaceArea();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 }

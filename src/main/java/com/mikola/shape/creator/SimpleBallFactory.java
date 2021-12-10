@@ -14,7 +14,7 @@ public class SimpleBallFactory {
             throw new BallException("Given point is null");
         }
         logger.info("Ball object created");
-        return new Ball(point,radius);
+        return new Ball(point, radius);
     }
 
 }

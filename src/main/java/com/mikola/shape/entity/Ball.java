@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class Ball implements Observable {
-    Point center;
-    double radius;
-    long id;
+    private Point center;
+    private double radius;
+    private long id;
     private List<Observer> observers = new ArrayList<>();
 
     public Ball() {
@@ -85,8 +85,8 @@ public class Ball implements Observable {
 
     @Override
     public void notifyObserver() throws BallException {
-       for(Observer i : observers) {
-           i.update(this);
-       }
+        for (Observer i : observers) {
+            i.update(this);
+        }
     }
 }

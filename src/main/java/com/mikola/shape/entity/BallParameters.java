@@ -37,7 +37,7 @@ public class BallParameters {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getVolume(), getSurfaceArea());
+        return Double.hashCode(getVolume() + getSurfaceArea());
     }
 
     @Override
