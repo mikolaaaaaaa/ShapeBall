@@ -49,7 +49,17 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return (int) (x + 17 * y + 17 * z);
+        int result = 17;
+        long c = Double.doubleToLongBits(x);
+        int hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        c = Double.doubleToLongBits(y);
+        hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        c = Double.doubleToLongBits(z);
+        hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        return result;
     }
 
     @Override

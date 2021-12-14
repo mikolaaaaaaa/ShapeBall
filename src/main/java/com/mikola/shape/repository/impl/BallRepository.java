@@ -26,11 +26,6 @@ public class BallRepository implements Repository {
     }
 
     @Override
-    public void update(Ball ball) {
-        store.put(ball.getId(), ball);
-    }
-
-    @Override
     public List<Ball> query(Specification specification) throws BallException {
         List<Ball> balls = new ArrayList<>();
         for (Ball ball : store.values()) {

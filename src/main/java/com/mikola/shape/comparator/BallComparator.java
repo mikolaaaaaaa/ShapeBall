@@ -9,18 +9,17 @@ import java.util.Comparator;
 
 public class BallComparator {
     public Comparator<Ball> getIdComparator() {
-        Comparator<Ball> idComparator = new Comparator<Ball>() {
+        return new Comparator<Ball>() {
             @Override
             public int compare(Ball o1, Ball o2) {
                 return Long.compare(o1.getId(), o2.getId());
             }
         };
-        return idComparator;
     }
 
     public Comparator<Ball> getVolumeComparator() {
 
-        Comparator<Ball> volumeComparator = new Comparator<Ball>() {
+        return new Comparator<Ball>() {
             @Override
             public int compare(Ball o1, Ball o2) {
                 BallLogic ballLogic = new BallLogic();
@@ -35,32 +34,30 @@ public class BallComparator {
                 return Double.compare(volumeO1, volumeO2);
             }
         };
-        return volumeComparator;
     }
 
     public Comparator<Ball> getSurfaceAreaComparator() {
 
-        Comparator<Ball> surfaceAreaComparator = new Comparator<Ball>() {
+        return new Comparator<Ball>() {
             @Override
             public int compare(Ball o1, Ball o2) {
                 BallLogic ballLogic = new BallLogic();
                 double surfaceAreaO1 = 0;
                 double surfaceAreaO2 = 0;
                 try {
-                    surfaceAreaO1 = ballLogic.calculateVolume(o1);
-                    surfaceAreaO2 = ballLogic.calculateVolume(o2);
+                    surfaceAreaO1 = ballLogic.calculateSurfaceArea(o1);
+                    surfaceAreaO2 = ballLogic.calculateSurfaceArea(o2);
                 } catch (BallException e) {
                     e.printStackTrace();
                 }
                 return Double.compare(surfaceAreaO1, surfaceAreaO2);
             }
         };
-        return surfaceAreaComparator;
     }
 
 
     public Comparator<Ball> getFirstOxCoordinateComparator() {
-        Comparator<Ball> firstOxCoordinateComparator = new Comparator<Ball>() {
+        return new Comparator<Ball>() {
             @Override
             public int compare(Ball o1, Ball o2) {
                 Point firstCenter = o1.getCenter();
@@ -70,11 +67,10 @@ public class BallComparator {
                 return Double.compare(firstOxCoordinate, secondOxCoordinate);
             }
         };
-        return firstOxCoordinateComparator;
     }
 
     public Comparator<Ball> getFirstOyCoordinateComparator() {
-        Comparator<Ball> firstOyCoordinateComparator = new Comparator<Ball>() {
+        return new Comparator<Ball>() {
             @Override
             public int compare(Ball o1, Ball o2) {
                 Point firstCenter = o1.getCenter();
@@ -84,7 +80,6 @@ public class BallComparator {
                 return Double.compare(firstOyO1, firstOyO2);
             }
         };
-        return firstOyCoordinateComparator;
     }
 
 }

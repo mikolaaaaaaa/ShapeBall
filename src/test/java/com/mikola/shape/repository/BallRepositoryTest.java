@@ -50,16 +50,6 @@ public class BallRepositoryTest {
     }
 
     @Test
-    public void testUpdateShouldUpdateBall() {
-        ballRepository.add(ball);
-        ball.setCenter(new Point(2, 2, 2));
-        ballRepository.update(ball);
-        expectedMap.put(ball.getId(), ball);
-        actualMap = ballRepository.getStore();
-        Assertions.assertEquals(expectedMap, actualMap);
-    }
-
-    @Test
     public void testQueryShouldFilterBySpecifications() throws BallException {
         //given
         Ball firstTestBall = new Ball(new Point(2, 2, 2), 4);

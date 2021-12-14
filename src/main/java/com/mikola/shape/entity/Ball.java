@@ -60,7 +60,13 @@ public class Ball implements Observable {
 
     @Override
     public int hashCode() {
-        return Double.hashCode(radius + (center == null ? 0 : center.hashCode()));
+        int result = 17;
+        long c = Double.doubleToLongBits(radius);
+        int hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        hash = center == null ? 0 : center.hashCode();
+        result = result * 31 + hash;
+        return result;
     }
 
     @Override
