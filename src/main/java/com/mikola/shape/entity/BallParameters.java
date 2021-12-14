@@ -37,7 +37,14 @@ public class BallParameters {
 
     @Override
     public int hashCode() {
-        return Double.hashCode(getVolume() + getSurfaceArea());
+        int result = 17;
+        long c = Double.doubleToLongBits(volume);
+        int hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        c = Double.doubleToLongBits(surfaceArea);
+        hash = (int) (c ^ (c >>> 32));
+        result = result * 31 + hash;
+        return result;
     }
 
     @Override
