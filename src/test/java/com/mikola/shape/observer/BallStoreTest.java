@@ -1,6 +1,6 @@
 package com.mikola.shape.observer;
 
-import com.mikola.shape.action.impl.BallLogic;
+import com.mikola.shape.action.BallLogic;
 import com.mikola.shape.entity.Ball;
 import com.mikola.shape.entity.BallParameters;
 import com.mikola.shape.entity.Point;
@@ -12,35 +12,32 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 public class BallStoreTest {
-    private Ball ball;
-    private BallStore ballStore;
-    private BallLogic ballService;
+    private static final Ball BALL = new Ball(new Point(1, 1, 1), 2);;
+    private static final BallStore ballStore = BallStore.getInstance();
+    private static final BallLogic ballLogic = new BallLogic();
 
     @BeforeEach
     public void setUp() throws BallException {
-        ball = new Ball(new Point(1, 1, 1), 2);
-        ballStore = BallStore.getInstance();
-        ballService = new BallLogic();
-        ball.attach(ballStore);
-        ball.setRadius(3);
+        BALL.attach(ballStore);
+        BALL.setRadius(3);
     }
 
     @Test
-    public void testBallStoreVolumeShouldUpdateVolumeParameter() throws BallException {
-        double expected = ballService.calculateVolume(ball);
+    public void testBallStoreVolumeShouldUpdateVolumeParameter() {
+        double expected = ballLogic.calculateVolume(BALL);
         Map<Long, BallParameters> ballsMap = ballStore.getBallMap();
         double actual = ballsMap
-                .get(ball.getId())
+                .get(BALL.getId())
                 .getVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testBallStoreSurfaceAreaShouldUpdateSurfaceAreaParameter() throws BallException {
-        double expected = ballService.calculateSurfaceArea(ball);
+    public void testBallStoreSurfaceAreaShouldUpdateSurfaceAreaParameter() {
+        double expected = ballLogic.calculateSurfaceArea(BALL);
         Map<Long, BallParameters> ballsMap = ballStore.getBallMap();
         double actual = ballsMap
-                .get(ball.getId())
+                .get(BALL.getId())
                 .getSurfaceArea();
         Assertions.assertEquals(expected, actual);
     }

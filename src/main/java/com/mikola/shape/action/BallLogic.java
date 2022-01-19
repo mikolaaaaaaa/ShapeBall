@@ -1,48 +1,30 @@
-package com.mikola.shape.action.impl;
+package com.mikola.shape.action;
 
-import com.mikola.shape.action.ShapeLogic;
 import com.mikola.shape.entity.Ball;
-import com.mikola.shape.exception.BallException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class BallLogic implements ShapeLogic {
-    private static final Logger logger = LogManager.getLogger(BallLogic.class);
+public class BallLogic {
+    private static final Logger LOGGER = LogManager.getLogger(BallLogic.class);
 
-    @Override
-    public double calculateSurfaceArea(Ball ball) throws BallException {
-        if (ball == null) {
-            throw new BallException("Given object is null");
-        }
+    public double calculateSurfaceArea(Ball ball) {
         double surfaceArea = 4 * Math.PI * Math.pow(ball.getRadius(), 2);
-        logger.debug("Surface area #{} is #{}", ball, surfaceArea);
+        LOGGER.debug("Surface area #{} is #{}", ball, surfaceArea);
         return surfaceArea;
     }
 
-    @Override
-    public double calculateVolume(Ball ball) throws BallException {
-        if (ball == null) {
-            throw new BallException("Given object is null");
-        }
+
+    public double calculateVolume(Ball ball) {
         double volume = Math.PI * Math.pow(ball.getRadius(), 2) / 3;
-        logger.debug("Volume #{} is #{}", ball, volume);
+        LOGGER.debug("Volume #{} is #{}", ball, volume);
         return Math.PI * Math.pow(ball.getRadius(), 2) / 3;
     }
 
-    @Override
-    public boolean isBall(Ball ball) throws BallException {
-        if (ball == null) {
-            throw new BallException("Given object is null");
-        }
-        return (ball.getRadius() > 0);
+    public boolean isBall(Ball ball) {
+        return ball.getRadius() > 0;
     }
 
-    @Override
-    public boolean isPertainsCoordinatedPlanes(Ball ball) throws BallException {
-        if (ball == null) {
-            throw new BallException("Given object is null");
-        }
-
+    public boolean isPertainsCoordinatedPlanes(Ball ball) {
         double x = ball.getCenter().getX();
         double y = ball.getCenter().getY();
         double z = ball.getCenter().getZ();

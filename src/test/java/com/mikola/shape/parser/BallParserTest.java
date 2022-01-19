@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class BallParserTest {
         );
         BallParser ballParser = new BallParser();
         //when
-        List<double[]> actual = ballParser.parseStringToArray(stringList);
+        List<double[]> actual = ballParser.parseLineToArray(stringList);
         //then
         Assertions.assertArrayEquals(expected.toArray(), actual.toArray());
 

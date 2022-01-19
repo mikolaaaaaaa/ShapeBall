@@ -1,6 +1,6 @@
 package com.mikola.shape.observer;
 
-import com.mikola.shape.action.impl.BallLogic;
+import com.mikola.shape.action.BallLogic;
 import com.mikola.shape.entity.Ball;
 import com.mikola.shape.entity.BallParameters;
 import com.mikola.shape.exception.BallException;
@@ -12,6 +12,11 @@ import java.util.Map;
 public class BallStore implements Observer {
     private static BallStore ballStore;
     private Map<Long, BallParameters> ballMap = new HashMap<>();
+    private final BallLogic ballLogic;
+
+    private BallStore() {
+        ballLogic = new BallLogic();
+    }
 
     public static BallStore getInstance() {
         if (ballStore == null) {
@@ -26,9 +31,8 @@ public class BallStore implements Observer {
 
     @Override
     public void update(Ball ball) throws BallException {
-        BallLogic ballService = new BallLogic();
-        double volume = ballService.calculateVolume(ball);
-        double surfaceArea = ballService.calculateSurfaceArea(ball);
+        double volume = ballLogic.calculateVolume(ball);
+        double surfaceArea = ballLogic.calculateSurfaceArea(ball);
         ballMap.put(ball.getId(), new BallParameters(volume, surfaceArea));
     }
 

@@ -15,28 +15,28 @@ import java.util.List;
 
 public class DirectorTest {
 
-    private final String PATH = "src/test/resources";
+    private static final String PATH = "src/test/resources";
 
     @Test
     public void testCreateBallRepositoryShouldReturnBallsRepository() throws BallException {
         //given
-        String VALID_DATA = "1.1 2.2 3.3 4";
+        String validData = "1.1 2.2 3.3 4";
         Ball validBall = new Ball(new Point(1.1, 2.2, 3.3), 4);
 
         BallFileReader ballFileReader = Mockito.mock(BallFileReader.class);
-        List<String> stringLines = List.of(VALID_DATA);
-        Mockito.when(ballFileReader.readBallFromFile(PATH)).thenReturn(stringLines);
+        List<String> stringLines = List.of(validData);
+        Mockito.when(ballFileReader.read(PATH)).thenReturn(stringLines);
 
         BallParser ballParser = Mockito.mock(BallParser.class);
         List<double[]> doubleList = List.of(new double[]{1.1, 2.2, 3.3, 4});
-        Mockito.when(ballParser.parseStringToArray(stringLines)).thenReturn(doubleList);
+        Mockito.when(ballParser.parseLineToArray(stringLines)).thenReturn(doubleList);
 
         SimpleBallFactory simpleBallFactory = Mockito.mock(SimpleBallFactory.class);
         Point center = new Point(doubleList.get(0)[0],
                 doubleList.get(0)[1],
                 doubleList.get(0)[2]);
         double radius = doubleList.get(0)[3];
-        Mockito.when(simpleBallFactory.createBall(center, radius)).thenReturn(validBall);
+        Mockito.when(simpleBallFactory.create(center, radius)).thenReturn(validBall);
 
         Director director = new Director(ballFileReader, ballParser, simpleBallFactory);
         BallRepository expectedRepository = new BallRepository();

@@ -8,9 +8,9 @@ public class BallValidatorTest {
     @Test
     public void testIsNumericShouldReturnTrue() throws BallException {
         //given
-        String s = "1.1 1.1 1.1 1.1 1.1 1.1 1.1";
+        String DATA = "1.1 1.1 1.1 1.1 1.1 1.1 1.1";
         //when
-        boolean correctLine = BallValidator.chechInputLine(s);
+        boolean correctLine = BallValidator.chechInputLine(DATA);
         //then
         Assertions.assertTrue(correctLine);
     }
@@ -18,9 +18,9 @@ public class BallValidatorTest {
     @Test
     public void testIsNumericShouldReturnFalse() throws BallException {
         //given
-        String s = "1.1a 1.1 1.1 1.1 1.1 1.1 1.1";
+        String DATA = "1.1a 1.1 1.1 1.1 1.1 1.1 1.1";
         //when
-        boolean incorrectLine = BallValidator.chechInputLine(s);
+        boolean incorrectLine = BallValidator.chechInputLine(DATA);
         //then
         Assertions.assertFalse(incorrectLine);
     }

@@ -51,10 +51,10 @@ public class Ball implements Observable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ball ball = (Ball) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Ball ball = (Ball) object;
         return Double.compare(ball.getRadius(), getRadius()) == 0 && Objects.equals(getCenter(), ball.getCenter());
     }
 

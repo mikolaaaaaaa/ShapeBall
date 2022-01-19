@@ -16,7 +16,7 @@ public class SimpleBallFactoryTest {
         Ball expected = new Ball(center, radius);
         SimpleBallFactory simpleBallFactory = new SimpleBallFactory();
         //when
-        Ball actual = simpleBallFactory.createBall(center, radius);
+        Ball actual = simpleBallFactory.create(center, radius);
         //then
         Assertions.assertEquals(expected, actual);
     }

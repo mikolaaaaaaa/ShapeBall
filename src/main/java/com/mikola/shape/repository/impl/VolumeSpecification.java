@@ -1,6 +1,6 @@
 package com.mikola.shape.repository.impl;
 
-import com.mikola.shape.action.impl.BallLogic;
+import com.mikola.shape.action.BallLogic;
 import com.mikola.shape.entity.Ball;
 import com.mikola.shape.exception.BallException;
 import com.mikola.shape.repository.Specification;

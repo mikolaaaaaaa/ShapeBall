@@ -4,6 +4,9 @@ import com.mikola.shape.exception.BallException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,21 +15,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BallFileReader {
-    private static final Logger logger = LogManager.getLogger(BallFileReader.class);
+    private static final Logger LOGGER = LogManager.getLogger(BallFileReader.class);
 
-    public List<String> readBallFromFile(String path) throws BallException {
-        if (path == null || path.isEmpty()) {
-            throw new BallException("Given path is null or empty");
-        }
-        Path dataFile = Path.of(path);
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = Files.readAllLines(dataFile, StandardCharsets.UTF_8);
+    public List<String> read(String path) {
+        List<String> stringLines = new ArrayList<>();
+        try (BufferedReader reader =
+                     new BufferedReader(new FileReader(path))) {
+            String temp;
+            while ((temp = reader.readLine()) != null) {
+                stringLines.add(temp);
+            }
+        } catch (FileNotFoundException e) {
+            LOGGER.error("The file path is incorrect");
+            e.printStackTrace();
         } catch (IOException e) {
-            logger.error("The file path is incorrect");
             e.printStackTrace();
         }
-        logger.info("Reading from the file was successful");
-        return lines;
+
+        LOGGER.info("Reading from the file was successful");
+        return stringLines;
     }
 }

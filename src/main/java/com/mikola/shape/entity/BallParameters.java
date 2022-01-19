@@ -28,10 +28,10 @@ public class BallParameters {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BallParameters that = (BallParameters) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        BallParameters that = (BallParameters) object;
         return Double.compare(that.getVolume(), getVolume()) == 0 && Double.compare(that.getSurfaceArea(), getSurfaceArea()) == 0;
     }
 

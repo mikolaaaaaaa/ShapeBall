@@ -18,7 +18,7 @@ public class BallFileReaderTest {
         BallFileReader ballFileReader = new BallFileReader();
         String path = "src/test/resources/data.txt";
         //when
-        List<String> actual = ballFileReader.readBallFromFile(path);
+        List<String> actual = ballFileReader.read(path);
         //then
         Assertions.assertEquals(expected, actual);
     }
